@@ -1,0 +1,7 @@
+<logic name="or">
+    <logic name="or">
+        <condition name="AreaCodeCondition" operator="=" value="1111"/>
+        <condition name="AreaCodeCondition" operator="=" value="222"/>
+    </logic>
+    <logic name="or"/>
+</logic>

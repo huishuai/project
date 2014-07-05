@@ -1,0 +1,249 @@
+{"adiPath": "/home/bsmp/adihome/adi24043.xml", "mPackage": {
+    "metadatas": {
+        "assetName": "扬州新闻03月17日标题",
+        "providerId": "广电网络",
+        "providerName": "广电网络",
+        "versionMajor": "",
+        "versionMinor": "",
+        "description": "",
+        "creationDate": "2013-03-18 17:23:12",
+        "assetClass": "package",
+        "assetCatalogs": "60005,",
+        "apps": [
+            {
+                "app": "MOD",
+                "name": "Metadata_Spec_Version",
+                "value": "CableLabsVOD1.1"
+            }
+        ]
+    },
+    "contents": []
+}, "title": {
+    "metadatas": {
+        "assetName": "扬州新闻03月17日标题",
+        "providerId": "广电网络",
+        "providerName": "广电网络",
+        "versionMajor": "",
+        "versionMinor": "",
+        "description": "",
+        "creationDate": "2013-03-18 17:23:12",
+        "assetClass": "title",
+        "apps": [
+            {
+                "app": "MOD",
+                "name": "ShortName",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "AssetCategory",
+                "value": "0"
+            },
+            {
+                "app": "MOD",
+                "name": "Title",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Asset_Name",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Rating",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Year",
+                "value": "2013"
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Director",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Category",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Run_Time",
+                "value": "00:00:01"
+            },
+            {
+                "app": "MOD",
+                "name": "Display_Run_Time",
+                "value": "00:00:01"
+            },
+            {
+                "app": "MOD",
+                "name": "Licensing_Window_Start",
+                "value": "2013-03-18"
+            },
+            {
+                "app": "MOD",
+                "name": "Licensing_Window_End",
+                "value": "2014-03-18"
+            },
+            {
+                "app": "MOD",
+                "name": "Summary_Short",
+                "value": "扬州新闻"
+            },
+            {
+                "app": "MOD",
+                "name": "Keywords",
+                "value": ""
+            }
+        ]
+    },
+    "contents": []
+}, "previews": [], "movie": {
+    "metadatas": {
+        "assetName": "扬州新闻03月17日",
+        "providerId": "广电网络",
+        "providerName": "广电网络",
+        "versionMajor": "",
+        "versionMinor": "",
+        "description": "",
+        "creationDate": "2013-03-18 17:55:26",
+        "source": "/home/ftptest/admin/zxy/yzxw0317.ts",
+        "assetClass": "movie",
+        "apps": [
+            {
+                "app": "MOD",
+                "name": "ShortName",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Title",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Asset_Name",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Rating",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Year",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Actors",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Director",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Category",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Run_Time",
+                "value": "00:00:00"
+            },
+            {
+                "app": "MOD",
+                "name": "Display_Run_Time",
+                "value": "00:00:00"
+            },
+            {
+                "app": "MOD",
+                "name": "Licensing_Window_Start",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Licensing_Window_End",
+                "value": ""
+            },
+            {
+                "app": "MOD",
+                "name": "Summary_Short",
+                "value": ""
+            }
+        ]
+    },
+    "contents": [
+        {
+            "value": "/home/ftptest/admin/zxy/yzxw0317_STB.ts",
+            "convertId": "26"
+        },
+        {
+            "value": "/home/ftptest/admin/zxy/yzxw0317_Phone.ts",
+            "convertId": "29"
+        },
+        {
+            "value": "/home/ftptest/admin/zxy/yzxw0317_Pad.ts",
+            "convertId": "14"
+        },
+        {
+            "value": "/home/ftptest/admin/zxy/yzxw0317.flv",
+            "convertId": "16"
+        }
+    ]
+}, "poster": {
+    "metadatas": {
+        "assetName": "扬州新闻03月17日海报",
+        "providerId": "广电网络",
+        "providerName": "广电网络",
+        "versionMajor": "",
+        "versionMinor": "",
+        "description": "",
+        "creationDate": "2013-03-18 17:55:32",
+        "assetClass": "poster"
+    },
+    "contents": []
+}}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <bean id="sessionContainer" class="com.daocren.server.communication.sync.SessionsContainer"/>
+
+    <bean id="orderSyncMessageSender" class="com.daocren.server.communication.sync.SyncMessageSender">
+        <constructor-arg index="0" value="bossOrder"/>
+        <constructor-arg index="1" ref="sessionContainer"/>
+        <property name="waitTime" value="30000"/>
+    </bean>
+
+    <bean id="orderOnceSyncMessageSender" class="com.daocren.server.communication.sync.SyncMessageSender">
+        <constructor-arg index="0" value="bossOrderOnce"/>
+        <constructor-arg index="1" ref="sessionContainer"/>
+        <property name="waitTime" value="30000"/>
+    </bean>
+
+    <!--本地测试的时候可以用这个代码-->
+    <import resource="classpath:jcconfig/boss.iscp.order.server.xml"/>
+    <import resource="classpath:jcconfig/boss.iscp.orderonce.server.xml"/>
+    <!--<import resource="classpath:jcconfig/boss.iscp.order.client.xml"/>-->
+    <!--<import resource="classpath:jcconfig/boss.iscp.orderonce.client.xml"/>-->
+
+
+    <import resource="classpath:jcconfig/bsmpWebServiceClient.xml"/>
+
+</beans>

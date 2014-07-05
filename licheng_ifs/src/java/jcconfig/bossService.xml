@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="BossServiceService" targetNamespace="http://service.jincheng.webservice.syncboss.bsmp.com/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.jincheng.webservice.syncboss.bsmp.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.jincheng.webservice.syncboss.bsmp.com/" xmlns:tns="http://service.jincheng.webservice.syncboss.bsmp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="addCooperater" type="tns:addCooperater" />
+<xs:element name="addCooperaterResponse" type="tns:addCooperaterResponse" />
+<xs:element name="editCooperater" type="tns:editCooperater" />
+<xs:element name="editCooperaterResponse" type="tns:editCooperaterResponse" />
+<xs:element name="removeCooperater" type="tns:removeCooperater" />
+<xs:element name="removeCooperaterResponse" type="tns:removeCooperaterResponse" />
+<xs:element name="savePorductPackage" type="tns:savePorductPackage" />
+<xs:element name="savePorductPackageAssest" type="tns:savePorductPackageAssest" />
+<xs:element name="savePorductPackageAssestResponse" type="tns:savePorductPackageAssestResponse" />
+<xs:element name="savePorductPackageResponse" type="tns:savePorductPackageResponse" />
+<xs:complexType name="savePorductPackageAssest">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:porductPackageAssest" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="porductPackageAssest">
+<xs:sequence>
+<xs:element minOccurs="0" name="assetId" type="xs:string" />
+<xs:element minOccurs="0" name="productId" type="xs:string" />
+<xs:element minOccurs="0" name="productName" type="xs:string" />
+<xs:element minOccurs="0" name="productState" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="savePorductPackageAssestResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:affirm" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="affirm">
+<xs:sequence>
+<xs:element minOccurs="0" name="rtnCode" type="xs:string" />
+<xs:element minOccurs="0" name="rtnMsg" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="savePorductPackage">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:porductPackage" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="porductPackage">
+<xs:sequence>
+<xs:element minOccurs="0" name="billType" type="xs:string" />
+<xs:element minOccurs="0" name="cancleDate" type="xs:dateTime" />
+<xs:element minOccurs="0" name="deployDate" type="xs:dateTime" />
+<xs:element minOccurs="0" name="prodBSMPFlag" type="xs:string" />
+<xs:element minOccurs="0" name="productDescription" type="xs:string" />
+<xs:element minOccurs="0" name="productId" type="xs:string" />
+<xs:element minOccurs="0" name="productName" type="xs:string" />
+<xs:element minOccurs="0" name="productState" type="xs:string" />
+<xs:element minOccurs="0" name="productType" type="xs:string" />
+<xs:element minOccurs="0" name="totalClass" type="xs:string" />
+<xs:element name="totalNum" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="savePorductPackageResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:affirm" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addCooperater">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:cooperater" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cooperater">
+<xs:sequence>
+<xs:element minOccurs="0" name="effDate" type="xs:string" />
+<xs:element minOccurs="0" name="expDate" type="xs:string" />
+<xs:element minOccurs="0" name="spId" type="xs:string" />
+<xs:element minOccurs="0" name="spName" type="xs:string" />
+<xs:element minOccurs="0" name="spStatus" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addCooperaterResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:affirm" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="removeCooperater">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:cooperater" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="removeCooperaterResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:affirm" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="editCooperater">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:cooperater" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="editCooperaterResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:affirm" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+
+  </wsdl:types>
+  <wsdl:message name="addCooperater">
+    <wsdl:part element="tns:addCooperater" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="savePorductPackageAssest">
+    <wsdl:part element="tns:savePorductPackageAssest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCooperater">
+    <wsdl:part element="tns:removeCooperater" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCooperaterResponse">
+    <wsdl:part element="tns:addCooperaterResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="savePorductPackage">
+    <wsdl:part element="tns:savePorductPackage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCooperaterResponse">
+    <wsdl:part element="tns:removeCooperaterResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="savePorductPackageResponse">
+    <wsdl:part element="tns:savePorductPackageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="savePorductPackageAssestResponse">
+    <wsdl:part element="tns:savePorductPackageAssestResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editCooperaterResponse">
+    <wsdl:part element="tns:editCooperaterResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editCooperater">
+    <wsdl:part element="tns:editCooperater" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BossService">
+    <wsdl:operation name="savePorductPackageAssest">
+      <wsdl:input message="tns:savePorductPackageAssest" name="savePorductPackageAssest">
+    </wsdl:input>
+      <wsdl:output message="tns:savePorductPackageAssestResponse" name="savePorductPackageAssestResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savePorductPackage">
+      <wsdl:input message="tns:savePorductPackage" name="savePorductPackage">
+    </wsdl:input>
+      <wsdl:output message="tns:savePorductPackageResponse" name="savePorductPackageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCooperater">
+      <wsdl:input message="tns:addCooperater" name="addCooperater">
+    </wsdl:input>
+      <wsdl:output message="tns:addCooperaterResponse" name="addCooperaterResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCooperater">
+      <wsdl:input message="tns:removeCooperater" name="removeCooperater">
+    </wsdl:input>
+      <wsdl:output message="tns:removeCooperaterResponse" name="removeCooperaterResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editCooperater">
+      <wsdl:input message="tns:editCooperater" name="editCooperater">
+    </wsdl:input>
+      <wsdl:output message="tns:editCooperaterResponse" name="editCooperaterResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BossServiceServiceSoapBinding" type="tns:BossService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="savePorductPackageAssest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="savePorductPackageAssest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="savePorductPackageAssestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savePorductPackage">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="savePorductPackage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="savePorductPackageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCooperater">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addCooperater">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addCooperaterResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCooperater">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removeCooperater">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removeCooperaterResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editCooperater">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="editCooperater">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="editCooperaterResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BossServiceService">
+    <wsdl:port binding="tns:BossServiceServiceSoapBinding" name="BossServicePort">
+      <soap:address location="http://192.168.50.114:8038/bsmp/iscpInterface/bossService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

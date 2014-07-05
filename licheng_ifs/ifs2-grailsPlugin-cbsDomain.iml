@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="Gorm" />
+        </datasource-map>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../licheng_cbsdomain">
+      <sourceFolder url="file://$MODULE_DIR$/../licheng_cbsdomain/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../licheng_cbsdomain/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../licheng_cbsdomain/grails-app/domain" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib-domain" level="project" />
+    <orderEntry type="module" module-name="licheng_crm-grailsPlugins" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-1.2.2" level="application" />
+    <orderEntry type="module-library">
+      <library name="Grails User Library (cbsDomain-inplacePlugin)">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../licheng_cbsdomain/lib" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.geronimo.specs/geronimo-jms_1.1_spec/jars/geronimo-jms_1.1_spec-1.1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/je/je/jars/je-3.3.87.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../licheng_cbsdomain/lib" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+

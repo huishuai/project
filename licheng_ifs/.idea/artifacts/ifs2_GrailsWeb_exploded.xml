@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ifs2:GrailsWeb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ifs2_GrailsWeb_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="javaee-facet-classes" facet="ifs2/web/GrailsWeb" />
+          <element id="module-output" name="licheng_cbsdomain" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="module" name="Grails User Library" module-name="ifs2" />
+          <element id="library" level="module" name="Grails User Library (licheng_cbsdomain)" module-name="licheng_cbsdomain" />
+          <element id="library" level="application" name="grails-1.2.2" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="licheng_ifs/web/GrailsWeb" />
+    </root>
+  </artifact>
+</component>

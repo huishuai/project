@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                                http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                                http://www.springframework.org/schema/aop
+                                   http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+                                   http://www.springframework.org/schema/tx
+                                   http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+    <bean id="orderOnceClientConfiger"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.net.SocketAddress">
+                    <bean
+                            class="org.apache.mina.integration.spring.InetSocketAddressEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!--Client-->
+    <bean id="orderOnceClientClientEngine"
+          class="com.daocren.server.communication.engine.ClientEngine"
+          init-method="start" destroy-method="stop">
+        <property name="conFactoryList">
+            <list>
+                <ref local="orderOnceClientConnectorFactory"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="orderOnceClientConnectorFactory"
+          class="com.daocren.server.communication.engine.ConnectorFactory">
+        <property name="host" value="${BOSS_ONCE_ORDER_SERVER_IP}"/>
+        <property name="port" value="${BOSS_ONCE_ORDER_SERVER_PORT}"/>
+        <property name="handler" ref="orderOnceClientClientSessionHandler"/>
+        <property name="name" value="bossOrderOnce"/>
+        <property name="count" value="1"/>
+    </bean>
+    <bean id="orderOnceClientMsgLogger"
+          class="com.daocren.server.communication.filter.MsgLogFilter"/>
+
+
+    <bean id="orderOnceClientClientSessionHandler"
+          class="com.daocren.server.communication.engine.ClientSessionHandler">
+        <property name="name" value="monternetClient"/>
+        <property name="idleTime" value="5"/>
+        <property name="sessionsContainer" ref="sessionContainer"/>
+        <property name="filters">
+            <list>
+            </list>
+        </property>
+        <property name="sessionHandlerConfig">
+            <bean class="com.daocren.server.communication.engine.SessionHandlerConfig">
+                <property name="keepAliveClass">
+                    <value type="java.lang.Class">com.bmsp.message.KeepAlive</value>
+                </property>
+                <property name="coders">
+                    <list>
+                        <value type="java.lang.Class">com.bmsp.codec.BossMsgEncoder</value>
+                        <value type="java.lang.Class">com.bmsp.codec.BossMsgDecoder</value>
+                        <value type="java.lang.Class">com.bmsp.codec.KeepAliveEncoder</value>
+                        <value type="java.lang.Class">com.bmsp.codec.KeepAliveDecoder</value>
+                    </list>
+                </property>
+                <property name="clazzHandlerMap">
+                    <map>
+                        <entry>
+                            <key>
+                                <value type="java.lang.Class">com.bmsp.message.BossMessage</value>
+                            </key>
+                            <bean class="com.bmsp.handler.BossClientMsgHandler">
+                                <property name="sender" ref="orderOnceSyncMessageSender"/>
+                            </bean>
+                        </entry>
+                        <entry>
+                            <key>
+                                <value type="java.lang.Class">com.bmsp.message.KeepAlive</value>
+                            </key>
+                            <bean class="com.bmsp.handler.BossClientKeepAliveHandler">
+                                <property name="name" value="bossOrderOnce"/>
+                            </bean>
+                        </entry>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+</beans>

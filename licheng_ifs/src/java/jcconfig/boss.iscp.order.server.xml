@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                                http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                                http://www.springframework.org/schema/aop
+                                   http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+                                   http://www.springframework.org/schema/tx
+                                   http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+    <bean id="orderServerConfiger"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.net.SocketAddress">
+                    <bean
+                            class="org.apache.mina.integration.spring.InetSocketAddressEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <!--Server-->
+    <bean id="orderServerEngine"
+          class="org.apache.mina.integration.spring.IoAcceptorFactoryBean"
+          depends-on="orderServerConfiger">
+        <property name="target">
+            <bean
+                    class="org.apache.mina.transport.socket.nio.SocketAcceptor"/>
+        </property>
+        <property name="bindings">
+            <list>
+                <ref bean="orderServerBind"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="orderServerThreadModel"
+          class="org.apache.mina.integration.spring.ExecutorThreadModelFactoryBean">
+        <property name="serviceName" value="serverThreadModel"/>
+        <property name="executor">
+            <bean
+                    class="com.daocren.server.communication.engine.ThreadExecutorFactoryBean">
+                <property name="corePoolSize" value="3"/>
+                <property name="maxPoolSize" value="30"/>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="orderServerBind"
+          class="org.apache.mina.integration.spring.Binding">
+        <property name="address" value=":18005"/>
+        <property name="handler" ref="orderServerHandler"/>
+        <property name="serviceConfig">
+            <bean
+                    class="org.apache.mina.transport.socket.nio.SocketAcceptorConfig">
+                <property name="reuseAddress" value="true"/>
+                <property name="threadModel">
+                    <ref local="orderServerThreadModel"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="orderServerHandler"
+          class="com.daocren.server.communication.engine.ServerSessionHandler">
+        <property name="filters">
+            <list>
+            </list>
+        </property>
+        <property name="sessionHandlerConfig" ref="iscpServerSessionHandlerConfig">
+        </property>
+    </bean>
+    <bean id="iscpServerSessionHandlerConfig" class="com.daocren.server.communication.engine.SessionHandlerConfig">
+        <property name="coders">
+            <list>
+                <value type="java.lang.Class">com.bmsp.codec.BossOrderMsgEncoder</value>
+                <value type="java.lang.Class">com.bmsp.codec.BossOrderMsgDecoder</value>
+                <value type="java.lang.Class">com.bmsp.codec.KeepOrderAliveEncoder</value>
+                <value type="java.lang.Class">com.bmsp.codec.KeepOrderAliveDecoder</value>
+            </list>
+        </property>
+
+        <property name="clazzHandlerMap">
+            <map>
+                <entry>
+                    <key>
+                        <value type="java.lang.Class">com.bmsp.message.BossOrderMessage</value>
+                    </key>
+                    <!--boss接口-->
+                    <!--<bean class="com.bmsp.handler.BossServerMsgHandler"> -->
+                    <!--</bean>-->
+                    <!--boss接口模拟，测试用-->
+                    <bean class="com.bmsp.handler.BossMsgHandler">
+                        <property name="process" ref="jcSocketService"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <value type="java.lang.Class">com.bmsp.message.KeepOrderAlive</value>
+                    </key>
+                    <bean class="com.bmsp.handler.BossOrderKeepAliveHandler">
+                        <property name="name" value="bossOrder"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>

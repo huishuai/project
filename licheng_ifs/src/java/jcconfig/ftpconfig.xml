@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <bean id="ftpClient" class="com.miniboss.acct.utils.FtpClient">
+        <property name="host" value="${FTP_BOSS_IP}"/>
+        <property name="port" value="${FTP_BOSS_PORT}"/>
+        <property name="user" value="${FTP_BOSS_USER}"/>
+        <property name="password" value="${FTP_BOSS_PASSWORD}"/>
+        <property name="remoteFilePath" value="${FTP_BOSS_CONTENT_FILE_ROOT}"/>
+        <property name="localFilePath" value="${LOCAL_FILE_PATH}"/>
+    </bean>
+
+    <bean id="ftpClientUms" class="com.miniboss.acct.utils.FtpClient">
+        <property name="host" value="${FTP_UMS_IP}"/>
+        <property name="port" value="${FTP_UMS_PORT}"/>
+        <property name="user" value="${FTP_UMS_USER}"/>
+        <property name="password" value="${FTP_UMS_PASSWORD}"/>
+        <property name="remoteFilePath" value="${UMS_REMOTE_FILE_PATH}"/>
+        <property name="localFilePath" value="${LOCAL_FILE_PATH}"/>
+    </bean>
+
+    <bean id="ftpClientIfs" class="com.miniboss.acct.utils.FtpClient">
+        <property name="host" value="${FTP_IFS_IP}"/>
+        <property name="port" value="${FTP_IFS_PORT}"/>
+        <property name="user" value="${FTP_IFS_USER}"/>
+        <property name="password" value="${FTP_IFS_PASSWORD}"/>
+        <property name="remoteFilePath" value="${IFS_REMOTE_FILE_PATH}"/>
+        <property name="localFilePath" value="${LOCAL_FILE_PATH}"/>
+    </bean>
+    <bean id="ftpClientBmpt" class="com.miniboss.acct.utils.FtpClient">
+        <property name="host" value="${FTP_BMPT_IP}"/>
+        <property name="port" value="${FTP_BMPT_PORT}"/>
+        <property name="user" value="${FTP_BMPT_USER}"/>
+        <property name="password" value="${FTP_BMPT_PASSWORD}"/>
+        <property name="remoteFilePath" value="${BMPT_REMOTE_FILE_PATH}"/>
+        <property name="localFilePath" value="${LOCAL_FILE_PATH}"/>
+    </bean>
+</beans>

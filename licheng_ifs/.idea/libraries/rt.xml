@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="rt">
+    <CLASSES>
+      <root url="jar://C:/Program Files/Java/jdk1.6.0_31/jre/lib/rt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
